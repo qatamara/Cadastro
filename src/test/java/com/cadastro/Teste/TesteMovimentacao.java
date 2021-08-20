@@ -54,6 +54,36 @@ public class TesteMovimentacao {
     @Test
     public void testMensagemDeObrigatoriedadeCampos(){
 
+        WebElement movimentacaoOpcao = navegador.findElement(By.linkText("Criar Movimentação"));
+        movimentacaoOpcao.click();
+
+        WebElement combo = navegador.findElement(By.id("conta"));
+        Select conta = new Select(combo);
+        conta.selectByValue("758672");
+
+        WebElement tipoopcao = navegador.findElement(By.id("tipo"));
+        Select tipo = new Select(tipoopcao);
+        tipo.selectByValue("REC");
+
+
+
+        WebElement descricaoinput= navegador.findElement(By.id("descricao"));
+        descricaoinput.sendKeys("Quitar");
+
+
+
+        WebElement comboI = navegador.findElement(By.id("conta"));
+        Select contaI = new Select(comboI);
+        conta.selectByValue("758672");
+
+        WebElement situacao = navegador.findElement(By.className("col-lg-3"));
+        WebElement status = navegador.findElement(By.id("status_pago"));
+        status.click();
+
+        WebElement salvarBotao = navegador.findElement(By.className("btn-primary"));
+        salvarBotao.click();
+
+
 
 
 
@@ -143,10 +173,12 @@ public class TesteMovimentacao {
         Assert.assertEquals("Movimentação adicionada com sucesso!",navegador.findElement(By.className("alert-success")).getText());
     }
 
-
+/*
     @After
     public void fechar(){
         navegador.quit();
     }
+    */
+
 
 }

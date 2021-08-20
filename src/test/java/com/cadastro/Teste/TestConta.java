@@ -77,7 +77,7 @@ public class TestConta {
 
 
         WebElement nome = navegador.findElement(By.id("nome"));
-        nome.sendKeys("Marcela Duarte");
+        nome.sendKeys("JAVA");
         WebElement botao = navegador.findElement(By.className("btn-primary"));
         botao.click();
 
@@ -127,17 +127,15 @@ public class TestConta {
         WebElement listaropcao = navegador.findElement(By.linkText("Listar"));
         listaropcao.click();
 
-        WebElement tabela = navegador.findElement(By.xpath(".//span[@class='glyphicon glyphicon-remove-circle']"));
-        tabela.click();
-
+        WebElement tabela = navegador.findElement(By.cssSelector("#tabelaContas > tbody > tr:nth-child(2) > td:nth-child(2) > a:nth-child(2) > span"));
         assertEquals("Conta removida com sucesso!",navegador.findElement(By.className("alert-success")).getText());
 
     }
-
+   /*
     @After
     public void encerrar(){
         navegador.quit();
     }
 
-
+*/
 }
